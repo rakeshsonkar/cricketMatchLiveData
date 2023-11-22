@@ -1,0 +1,31 @@
+<div class="table-container">
+<h1 class="text-4xl font-extrabold text-gray-800 px-2"> Point Table</h1>
+<table class="min-w-full divide-y divide-gray-200">
+    <thead class="bg-gray-50">
+      <tr>
+    @for (item of tableheading; track $index) {
+        <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">{{item}}</th>
+    }
+      </tr>
+    </thead>
+    <tbody class="bg-white divide-y divide-gray-200">
+        @for (Tablevaluedata of cgeetPointTable; track $index) {
+            <tr class="hover:bg-gray-100 transition-colors"
+            [ngClass]="{
+              'bg-green-200' :$index<=4,
+              'bg-red-200':$index >4 
+            }"
+            >
+                @if($index>0){
+                    @for (data of Tablevaluedata; track $index) {
+                        <td class="px-6 py-4 whitespace-nowrap">{{data}}</td>
+                    }
+                }
+               
+              </tr>
+        }
+      
+      <!-- Add more rows with data -->
+    </tbody>
+  </table>
+</div>
